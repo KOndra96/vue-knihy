@@ -1,5 +1,6 @@
 <template>
     <ul>
+
         <form>
             <div class="together">
                 <input type="text" placeholder="Název knihy" ref="name">
@@ -12,15 +13,16 @@
             </div>
             <button type="submit" @click.prevent="addBook()">Zadat</button>
         </form>
-
-        <li v-for="book in bookList">
-            <div class="book-info">
-                <h3>{{ book.name }} - {{ book.firstPublished }}</h3>
-                <p>{{ book.author }}</p>
-                <p><small><i>{{ book.pages }} stran v {{ book.chapters }} kapitolách</i></small></p>
-            </div>
-            <button @click="removeBook(book)">X</button>
-        </li>
+        <transition-group name="fade" tag="ul">
+            <li v-for="book in bookList">
+                <div class="book-info">
+                    <h3>{{ book.name }} - {{ book.firstPublished }}</h3>
+                    <p>{{ book.author }}</p>
+                    <p><small><i>{{ book.pages }} stran v {{ book.chapters }} kapitolách</i></small></p>
+                </div>
+                <button @click="removeBook(book)">X</button>
+            </li>
+        </transition-group>
     </ul>
 
 </template>
@@ -104,7 +106,7 @@ export default {
             ]
         }
     },
-    
+
     methods: {
         addBook() {
             if
@@ -180,5 +182,15 @@ li {
 
 .book-info {
     width: 80%;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
 }
 </style>
