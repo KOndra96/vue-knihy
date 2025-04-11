@@ -225,7 +225,7 @@ export default {
                 {
                     name: 'The Odyssey',
                     author: 'Homer',
-                    firstPublished: -800, // přibližně
+                    firstPublished: -800,
                     pages: 541,
                     chapters: 24
                 },
@@ -288,7 +288,7 @@ export default {
                 {
                     name: 'The Iliad',
                     author: 'Homer',
-                    firstPublished: -750, // přibližně
+                    firstPublished: -750,
                     pages: 683,
                     chapters: 24
                 },
